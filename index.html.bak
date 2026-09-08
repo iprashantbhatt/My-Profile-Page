@@ -953,7 +953,7 @@
   </svg>
   BLOG
 </a>
-<a style="display:none;" href="blogs.html" class="social-btn social-btn--blog" aria-label="New Blog">
+<a href="blogs.html" class="social-btn social-btn--blog" aria-label="New Blog">
 <svg viewBox="0 0 24 24" fill="currentColor">
 <path d="M6 6h12v2H6zm0 4h12v2H6zm0 4h8v2H6z"/>
 </svg>
@@ -1358,7 +1358,7 @@ New Blog
          <div class="blog-arrow">→</div>
        </a>
      </div>
-     <a href="blogs.html" target="_blank" rel="noopener" class="blog-cta">
+     <a href="https://prashant-bhatt.blogspot.com/?m=1" target="_blank" rel="noopener" class="blog-cta">
        📖 Read all posts on the blog &nbsp;→
      </a>
    </div>
