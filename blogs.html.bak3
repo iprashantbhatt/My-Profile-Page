@@ -209,23 +209,6 @@ body {
 
   <div class="blog-grid">
 
-    <article class="blog-card" id="gemini-3-8-flash">
-      <div class="blog-card-top">
-        <div class="blog-icon">🧠</div>
-        <div class="blog-meta-wrap">
-          <div class="blog-date">Sep 08, 2026</div>
-          <div class="blog-tag-inline">AI · Daily Bite</div>
-        </div>
-      </div>
-      <h2 class="blog-title">Google Enters the Coding AI Race with Gemini 3.8 Flash</h2>
-      <div class="blog-body">
-        <p>Google is rolling out Gemini 3.8 Flash, a reasoning and coding-focused model that's been tested internally against Anthropic's Opus in its own dev tooling — with early signals suggesting Google may be closing the coding-model gap it's had against OpenAI and Anthropic for a while now.</p>
-        <p>What stands out is the pricing move alongside it: aggressive per-token rates locked through the end of the year, clearly aimed at pulling developers away from competitors while the model proves itself. There's also a restricted "Cyber" variant built specifically for vulnerability discovery and automated patching — a sign that security-focused coding agents are becoming their own product category, not just a side feature.</p>
-        <p>For anyone building on top of LLMs day to day, this is the pattern worth watching: the frontier labs aren't just racing on raw capability anymore, they're racing on price and specialization at the same time. That usually means better tools land in developers' hands faster than the hype cycle suggests.</p>
-      </div>
-      <div class="blog-pills"><span class="blog-pill">AI</span><span class="blog-pill">Gemini</span><span class="blog-pill">Coding</span></div>
-    </article>
-
     <article class="blog-card" id="gpt-assistant">
       <div class="blog-card-top">
         <div class="blog-icon">🤖</div>
