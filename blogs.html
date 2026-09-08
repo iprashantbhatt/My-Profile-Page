@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Prashant Bhatt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg1: #f0f4f8;
+  --bg2: #dce8f0;
+  --orb1: rgba(180,210,240,0.7);
+  --orb2: rgba(200,230,255,0.6);
+  --orb3: rgba(160,200,230,0.5);
+  --glass-bg: rgba(255,255,255,0.45);
+  --glass-border: rgba(255,255,255,0.75);
+  --glass-shadow: rgba(100,150,200,0.15);
+  --topbar-bg: rgba(255,255,255,0.55);
+  --topbar-border: rgba(255,255,255,0.8);
+  --text-primary: #1a2a3a;
+  --text-secondary: #4a6070;
+  --text-meta: #7a9090;
+  --name-g1: #1e7be0;
+  --name-g2: #7b3fe4;
+  --name-g3: #0fb4c8;
+  --name-g4: #e04060;
+  --accent: #1e7be0;
+  --tag-bg: rgba(30,123,224,0.12);
+  --tag-border: rgba(30,123,224,0.25);
+  --btn-bg: rgba(255,255,255,0.6);
+  --btn-border: rgba(255,255,255,0.9);
+  --link-hover: rgba(30,123,224,0.08);
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+[data-theme="aurora"] {
+  --bg1: #050d1a; --bg2: #0a1a2a;
+  --orb1: rgba(0,200,150,0.25); --orb2: rgba(80,60,200,0.3); --orb3: rgba(0,180,255,0.2);
+  --glass-bg: rgba(10,25,50,0.55); --glass-border: rgba(255,255,255,0.12); --glass-shadow: rgba(0,200,150,0.1);
+  --topbar-bg: rgba(5,15,35,0.7); --topbar-border: rgba(255,255,255,0.08);
+  --text-primary: #e8f4ff; --text-secondary: #90b8d8; --text-meta: #5a8aaa;
+  --name-g1: #00e5aa; --name-g2: #4af0ff; --name-g3: #7a60ff; --name-g4: #00c8a0;
+  --accent: #00e5aa; --tag-bg: rgba(0,229,170,0.1); --tag-border: rgba(0,229,170,0.2);
+  --btn-bg: rgba(0,229,170,0.08); --btn-border: rgba(0,229,170,0.2); --link-hover: rgba(0,229,170,0.08);
+}
+[data-theme="sunset"] {
+  --bg1: #1a0820; --bg2: #2a0a18;
+  --orb1: rgba(255,80,120,0.3); --orb2: rgba(255,160,60,0.25); --orb3: rgba(180,40,160,0.2);
+  --glass-bg: rgba(40,10,30,0.5); --glass-border: rgba(255,120,100,0.18); --glass-shadow: rgba(255,80,120,0.1);
+  --topbar-bg: rgba(30,8,20,0.7); --topbar-border: rgba(255,100,80,0.12);
+  --text-primary: #ffe8f0; --text-secondary: #d890a8; --text-meta: #a86880;
+  --name-g1: #ff6080; --name-g2: #ffb040; --name-g3: #ff40c0; --name-g4: #ff8060;
+  --accent: #ff6080; --tag-bg: rgba(255,96,128,0.12); --tag-border: rgba(255,96,128,0.25);
+  --btn-bg: rgba(255,96,128,0.1); --btn-border: rgba(255,96,128,0.22); --link-hover: rgba(255,96,128,0.08);
+}
+[data-theme="forest"] {
+  --bg1: #040e08; --bg2: #081808;
+  --orb1: rgba(40,200,100,0.2); --orb2: rgba(20,140,60,0.25); --orb3: rgba(80,220,140,0.15);
+  --glass-bg: rgba(8,20,12,0.55); --glass-border: rgba(80,220,140,0.12); --glass-shadow: rgba(40,200,100,0.1);
+  --topbar-bg: rgba(4,12,6,0.72); --topbar-border: rgba(80,220,140,0.1);
+  --text-primary: #e0f5ea; --text-secondary: #80c898; --text-meta: #508860;
+  --name-g1: #40e890; --name-g2: #80ffb8; --name-g3: #20d070; --name-g4: #a0ffcc;
+  --accent: #40e890; --tag-bg: rgba(64,232,144,0.1); --tag-border: rgba(64,232,144,0.2);
+  --btn-bg: rgba(64,232,144,0.08); --btn-border: rgba(64,232,144,0.2); --link-hover: rgba(64,232,144,0.07);
+}
+[data-theme="obsidian"] {
+  --bg1: #08080c; --bg2: #100e18;
+  --orb1: rgba(120,80,255,0.2); --orb2: rgba(60,160,255,0.15); --orb3: rgba(200,80,255,0.15);
+  --glass-bg: rgba(15,12,28,0.6); --glass-border: rgba(255,255,255,0.08); --glass-shadow: rgba(120,80,255,0.12);
+  --topbar-bg: rgba(8,8,14,0.75); --topbar-border: rgba(120,80,255,0.1);
+  --text-primary: #f0eeff; --text-secondary: #9888cc; --text-meta: #6858a0;
+  --name-g1: #a070ff; --name-g2: #40b8ff; --name-g3: #d060ff; --name-g4: #6090ff;
+  --accent: #a070ff; --tag-bg: rgba(160,112,255,0.1); --tag-border: rgba(160,112,255,0.2);
+  --btn-bg: rgba(160,112,255,0.08); --btn-border: rgba(160,112,255,0.2); --link-hover: rgba(160,112,255,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg1);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.6s ease, color 0.4s ease;
+}
+.bg-canvas { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.bg-canvas::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, var(--orb1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, var(--orb2) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 90%, var(--orb3) 0%, transparent 50%);
+  background-color: var(--bg1);
+  transition: background 0.8s ease;
+  animation: bgPulse 12s ease-in-out infinite alternate;
+}
+.bg-canvas::after { content: ''; position: absolute; inset: 0; background: var(--noise); opacity: 1; }
+@keyframes bgPulse { 0% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.05) rotate(1deg); } 100% { transform: scale(1.02) rotate(-0.5deg); } }
+.page-wrap { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+.theme-float {
+  position: fixed; top: 16px; right: 16px; z-index: 200; width: 42px; height: 42px; border-radius: 14px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s;
+}
+.theme-float:hover { transform: scale(1.08); background: var(--link-hover); }
+.theme-panel {
+  position: fixed; top: 66px; right: 16px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 18px;
+  backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%);
+  padding: 14px; display: flex; flex-direction: column; gap: 8px;
+  box-shadow: 0 8px 32px var(--glass-shadow), 0 2px 8px rgba(0,0,0,0.1);
+  transform-origin: top right; transform: scale(0.88) translateY(-10px); opacity: 0;
+  pointer-events: none; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease;
+  z-index: 200; min-width: 200px;
+}
+.theme-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+.theme-panel-title { font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-meta); padding: 0 4px 4px; border-bottom: 1px solid var(--glass-border); margin-bottom: 2px; }
+.theme-option { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 11px; cursor: pointer; transition: background 0.2s; border: none; background: transparent; color: var(--text-primary); width: 100%; text-align: left; font-family: inherit; font-size: 13px; font-weight: 500; }
+.theme-option:hover { background: var(--link-hover); }
+.theme-option.active { background: var(--tag-bg); }
+.theme-swatch { width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+.theme-check { margin-left: auto; font-size: 12px; color: var(--accent); opacity: 0; transition: opacity 0.2s; }
+.theme-option.active .theme-check { opacity: 1; }
+.swatch-arctic { background: linear-gradient(135deg,#b0d8f0,#e8f4ff,#1e7be0); }
+.swatch-aurora { background: linear-gradient(135deg,#00e5aa,#4af0ff,#7a60ff); }
+.swatch-sunset { background: linear-gradient(135deg,#ff6080,#ffb040,#ff40c0); }
+.swatch-forest { background: linear-gradient(135deg,#40e890,#80ffb8,#20d070); }
+.swatch-obsidian { background: linear-gradient(135deg,#a070ff,#40b8ff,#d060ff); }
+.main { flex: 1; padding: 70px 16px 60px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 860px; margin: 0 auto; }
+.page-header { width: 100%; margin-bottom: 24px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text-meta);
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 18px; transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+.page-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(32px, 8vw, 46px); font-weight: 700;
+  letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--name-g1), var(--name-g2), var(--name-g3), var(--name-g4), var(--name-g1));
+  background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: liquidMove 4s linear infinite;
+}
+@keyframes liquidMove { 0% { background-position: 0%; } 100% { background-position: 200%; } }
+.page-sub { font-size: 14.5px; color: var(--text-secondary); max-width: 460px; line-height: 1.6; }
+.blog-grid { width: 100%; display: flex; flex-direction: column; gap: 18px; }
+.blog-card {
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 26px;
+  backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%);
+  padding: 26px 26px 22px; box-shadow: 0 4px 24px var(--glass-shadow);
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34,1.46,0.64,1), box-shadow 0.35s;
+}
+.blog-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--glass-border) 40%, var(--glass-border) 60%, transparent 100%); }
+.blog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 44px var(--glass-shadow); }
+.blog-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.blog-icon {
+  width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; flex-shrink: 0; border: 1px solid var(--glass-border); background: var(--glass-bg);
+  backdrop-filter: blur(12px); box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s;
+}
+.blog-card:hover .blog-icon { transform: scale(1.08) rotate(-4deg); }
+.blog-meta-wrap { flex: 1; }
+.blog-date { font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.blog-tag-inline { font-size: 10.5px; color: var(--text-meta); letter-spacing: 0.3px; }
+.blog-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(20px, 4.5vw, 24px); font-weight: 700;
+  letter-spacing: -0.3px; line-height: 1.25; color: var(--text-primary); margin-bottom: 12px; transition: color 0.4s;
+}
+.blog-body p { font-size: 13.5px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 10px; transition: color 0.4s; }
+.blog-body p:last-child { margin-bottom: 0; }
+.blog-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.blog-pill { padding: 5px 13px; border-radius: 100px; background: var(--tag-bg); border: 1px solid var(--tag-border); font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: var(--accent); }
+.footer-tag { text-align: center; margin-top: 30px; font-size: 11.5px; color: var(--text-meta); letter-spacing: 0.3px; }
+.footer-tag a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.footer-tag a:hover { text-decoration: underline; }
+@media (max-width: 480px) {
+  .main { padding: 64px 14px 50px; }
+  .blog-card { padding: 20px 18px 18px; border-radius: 22px; }
+}
+</style>
+</head>
+<body data-theme="arctic">
+<div class="bg-canvas"></div>
+<div class="page-wrap">
+
+<button class="theme-float" id="themeTrigger">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+  </svg>
+</button>
+<div class="theme-panel" id="themePanel" role="menu" aria-label="Theme switcher">
+  <div class="theme-panel-title">Choose Theme</div>
+  <button class="theme-option active" data-theme-val="arctic" role="menuitem"><div class="theme-swatch swatch-arctic"></div>Arctic White<span class="theme-check">✓</span></button>
+  <button class="theme-option" data-theme-val="aurora" role="menuitem"><div class="theme-swatch swatch-aurora"></div>Aurora Dark<span class="theme-check">✓</span></button>
+  <button class="theme-option" data-theme-val="sunset" role="menuitem"><div class="theme-swatch swatch-sunset"></div>Sunset Blaze<span class="theme-check">✓</span></button>
+  <button class="theme-option" data-theme-val="forest" role="menuitem"><div class="theme-swatch swatch-forest"></div>Forest Neon<span class="theme-check">✓</span></button>
+  <button class="theme-option" data-theme-val="obsidian" role="menuitem"><div class="theme-swatch swatch-obsidian"></div>Obsidian Violet<span class="theme-check">✓</span></button>
+</div>
+
+<main class="main" role="main">
+  <div class="page-header">
+    <a href="index.html" class="back-link">← Back to Profile</a>
+    <h1 class="page-title">Blog</h1>
+    <p class="page-sub">Daily AI &amp; tech bites — short, sharp notes on what I'm reading, building, and thinking about.</p>
+  </div>
+
+  <div class="blog-grid">
+
+    <article class="blog-card">
+      <div class="blog-card-top">
+        <div class="blog-icon">🤖</div>
+        <div class="blog-meta-wrap">
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">AI · Agents</div>
+        </div>
+      </div>
+      <h2 class="blog-title">Why Agentic AI Feels Different This Time</h2>
+      <div class="blog-body">
+        <p>Most AI tools of the last few years were built to answer a single question and stop. Agentic systems are built to keep going — they plan, check their own work, call tools, and only come back to you when something actually needs a human decision.</p>
+        <p>What's changing isn't the model underneath, it's the scaffolding around it. Memory, tool use, and multi-step reasoning turn a chatbot into something closer to a junior teammate that can be handed a vague goal and trusted to figure out the steps.</p>
+        <p>The interesting part for builders is that the hard problems have shifted — from "can the model answer this" to "can the system know when it's wrong, and stop before it does damage."</p>
+      </div>
+      <div class="blog-pills"><span class="blog-pill">Agentic AI</span><span class="blog-pill">LLMs</span></div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-top">
+        <div class="blog-icon">⚙️</div>
+        <div class="blog-meta-wrap">
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">Automation · Infra</div>
+        </div>
+      </div>
+      <h2 class="blog-title">Self-Hosting Everything Taught Me More Than Any Course</h2>
+      <div class="blog-body">
+        <p>Running my own VPS instead of leaning on managed platforms was slower at first — every deploy meant actually understanding Nginx, PM2, and SSL instead of clicking a button. But that friction is exactly where the learning happened.</p>
+        <p>There's a specific kind of confidence that comes from knowing your stack end to end: when something breaks at 2am, you're not waiting on a support ticket, you're reading a log file you already understand.</p>
+        <p>For anyone building AI tools or side projects, I'd argue owning your infrastructure — even a single small VPS — pays back fast in how quickly you can ship and debug.</p>
+      </div>
+      <div class="blog-pills"><span class="blog-pill">VPS</span><span class="blog-pill">DevOps</span></div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-top">
+        <div class="blog-icon">📈</div>
+        <div class="blog-meta-wrap">
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">Fintech · AI</div>
+        </div>
+      </div>
+      <h2 class="blog-title">Where Banking, AI, and Markets Quietly Overlap</h2>
+      <div class="blog-body">
+        <p>Working in banking while building AI-driven market research tools gives an odd but useful vantage point — you see how slow-moving institutional processes are, and how fast the tooling around them is evolving.</p>
+        <p>The real opportunity isn't replacing analysts with AI, it's compressing the time between "a signal appears in the data" and "someone with context sees it." Multi-agent research pipelines are a good example — automating the grunt work of scanning filings and news so a human only steps in for the judgment call.</p>
+        <p>That's the thread connecting most of what I build: less about full automation, more about removing the boring parts so the interesting decisions get more attention.</p>
+      </div>
+      <div class="blog-pills"><span class="blog-pill">Trading</span><span class="blog-pill">Automation</span></div>
+    </article>
+
+  </div>
+
+  <p class="footer-tag">More bites soon — follow along on <a href="https://x.com/iprashantbhatt" target="_blank" rel="noopener">X</a></p>
+</main>
+</div>
+
+<script>
+const themeTrigger = document.getElementById('themeTrigger');
+const themePanel = document.getElementById('themePanel');
+const themeOptions = document.querySelectorAll('.theme-option');
+const body = document.body;
+
+function applyTheme(theme) {
+  if (theme === 'arctic') { body.removeAttribute('data-theme'); }
+  else { body.setAttribute('data-theme', theme); }
+  themeOptions.forEach(opt => opt.classList.toggle('active', opt.dataset.themeVal === theme));
+  localStorage.setItem('site-theme', theme);
+}
+
+themeTrigger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  themePanel.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if (!themePanel.contains(e.target) && e.target !== themeTrigger) themePanel.classList.remove('open');
+});
+themeOptions.forEach(opt => {
+  opt.addEventListener('click', () => applyTheme(opt.dataset.themeVal));
+});
+
+const savedTheme = localStorage.getItem('site-theme');
+if (savedTheme) applyTheme(savedTheme);
+</script>
+</body>
+</html>
