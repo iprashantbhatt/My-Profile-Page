@@ -209,72 +209,55 @@ body {
 
   <div class="blog-grid">
 
-    <article class="blog-card" id="gpt-assistant">
+    <article class="blog-card">
       <div class="blog-card-top">
         <div class="blog-icon">🤖</div>
         <div class="blog-meta-wrap">
-          <div class="blog-date">May 2025</div>
-          <div class="blog-tag-inline">AI · 5 min read</div>
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">AI · Agents</div>
         </div>
       </div>
-      <h2 class="blog-title">How I Built My Own GPT Assistant</h2>
+      <h2 class="blog-title">Why Agentic AI Feels Different This Time</h2>
       <div class="blog-body">
-        <p>I wanted an assistant that actually knew my writing style, my financial background, and the projects I keep coming back to — not a generic chatbot starting from zero every time. So I built one, trained on my own knowledge base rather than relying purely on a stock system prompt.</p>
-        <p>The interesting part wasn't the model itself, it was the retrieval layer around it — deciding what context to feed in, when to trust the model's own reasoning versus pulling in my notes, and how to keep responses feeling like me rather than a template.</p>
-        <p>It now lives at gpt.prashantbhatt.net and handles a good chunk of my day-to-day drafting and research — a small but genuinely useful piece of infrastructure I built for myself first.</p>
+        <p>Most AI tools of the last few years were built to answer a single question and stop. Agentic systems are built to keep going — they plan, check their own work, call tools, and only come back to you when something actually needs a human decision.</p>
+        <p>What's changing isn't the model underneath, it's the scaffolding around it. Memory, tool use, and multi-step reasoning turn a chatbot into something closer to a junior teammate that can be handed a vague goal and trusted to figure out the steps.</p>
+        <p>The interesting part for builders is that the hard problems have shifted — from "can the model answer this" to "can the system know when it's wrong, and stop before it does damage."</p>
       </div>
-      <div class="blog-pills"><span class="blog-pill">GPT-4o</span><span class="blog-pill">AI</span><span class="blog-pill">Build</span></div>
+      <div class="blog-pills"><span class="blog-pill">Agentic AI</span><span class="blog-pill">LLMs</span></div>
     </article>
 
-    <article class="blog-card" id="defi-vs-banking">
+    <article class="blog-card">
       <div class="blog-card-top">
-        <div class="blog-icon">⛓️</div>
+        <div class="blog-icon">⚙️</div>
         <div class="blog-meta-wrap">
-          <div class="blog-date">Apr 2025</div>
-          <div class="blog-tag-inline">Finance × Web3 · 7 min read</div>
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">Automation · Infra</div>
         </div>
       </div>
-      <h2 class="blog-title">DeFi vs Traditional Banking — A Banker's Take</h2>
+      <h2 class="blog-title">Self-Hosting Everything Taught Me More Than Any Course</h2>
       <div class="blog-body">
-        <p>Years inside a traditional bank gives you a very specific respect for the plumbing — settlement, compliance, risk controls — that most DeFi conversations skip past entirely. But it also makes the inefficiencies impossible to unsee: how slow cross-border settlement still is, how much trust is manually re-verified at every step.</p>
-        <p>DeFi doesn't solve all of that, and a lot of the current tooling is still too fragile for the scale traditional finance operates at. But the core idea — programmable trust instead of institutional trust — is a real shift, not just a buzzword.</p>
-        <p>My honest take: the next decade probably isn't "DeFi replaces banking," it's traditional finance quietly absorbing the parts of DeFi that actually work, the same way the internet got absorbed rather than fought.</p>
+        <p>Running my own VPS instead of leaning on managed platforms was slower at first — every deploy meant actually understanding Nginx, PM2, and SSL instead of clicking a button. But that friction is exactly where the learning happened.</p>
+        <p>There's a specific kind of confidence that comes from knowing your stack end to end: when something breaks at 2am, you're not waiting on a support ticket, you're reading a log file you already understand.</p>
+        <p>For anyone building AI tools or side projects, I'd argue owning your infrastructure — even a single small VPS — pays back fast in how quickly you can ship and debug.</p>
       </div>
-      <div class="blog-pills"><span class="blog-pill">DeFi</span><span class="blog-pill">Finance</span><span class="blog-pill">Web3</span></div>
+      <div class="blog-pills"><span class="blog-pill">VPS</span><span class="blog-pill">DevOps</span></div>
     </article>
 
-    <article class="blog-card" id="liquid-glass-ui">
+    <article class="blog-card">
       <div class="blog-card-top">
-        <div class="blog-icon">🎨</div>
+        <div class="blog-icon">📈</div>
         <div class="blog-meta-wrap">
-          <div class="blog-date">Mar 2025</div>
-          <div class="blog-tag-inline">Design · 4 min read</div>
+          <div class="blog-date">Daily Bite</div>
+          <div class="blog-tag-inline">Fintech · AI</div>
         </div>
       </div>
-      <h2 class="blog-title">Liquid Glass UI — The Future of Web Design</h2>
+      <h2 class="blog-title">Where Banking, AI, and Markets Quietly Overlap</h2>
       <div class="blog-body">
-        <p>Apple's push toward translucent, depth-driven interfaces got me rethinking how a personal site should feel. Flat cards on a flat background are easy, but they don't give a sense of layers — of things floating above other things.</p>
-        <p>Building this site's glassmorphism entirely in pure CSS — backdrop-filter blur, layered gradients, subtle noise textures — turned into a genuinely fun constraint. No frameworks, no component libraries, just CSS variables driving five full theme palettes from one set of rules.</p>
-        <p>The result is a site that feels alive without a single JavaScript animation library — proof that a lot of "modern feel" is really just disciplined use of blur, light, and motion.</p>
+        <p>Working in banking while building AI-driven market research tools gives an odd but useful vantage point — you see how slow-moving institutional processes are, and how fast the tooling around them is evolving.</p>
+        <p>The real opportunity isn't replacing analysts with AI, it's compressing the time between "a signal appears in the data" and "someone with context sees it." Multi-agent research pipelines are a good example — automating the grunt work of scanning filings and news so a human only steps in for the judgment call.</p>
+        <p>That's the thread connecting most of what I build: less about full automation, more about removing the boring parts so the interesting decisions get more attention.</p>
       </div>
-      <div class="blog-pills"><span class="blog-pill">CSS</span><span class="blog-pill">Design</span><span class="blog-pill">Dev Log</span></div>
-    </article>
-
-    <article class="blog-card" id="coding-from-dehradun">
-      <div class="blog-card-top">
-        <div class="blog-icon">🏔️</div>
-        <div class="blog-meta-wrap">
-          <div class="blog-date">Feb 2025</div>
-          <div class="blog-tag-inline">Life · 3 min read</div>
-        </div>
-      </div>
-      <h2 class="blog-title">Coding from Dehradun — A Different Kind of Hustle</h2>
-      <div class="blog-body">
-        <p>Building outside the usual tech-hub cities means a different rhythm — no casual meetups down the street, no ambient "everyone's building something" energy. What you do get is fewer distractions and a lot more uninterrupted focus time.</p>
-        <p>Being a banker by day and building AI tools and trading systems by night in a smaller city forces a particular kind of discipline: nobody's watching, so the only reason to ship is that you actually want to.</p>
-        <p>It's slower in some ways, faster in others — and honestly, the mountains outside the window are a pretty good tradeoff for the silence.</p>
-      </div>
-      <div class="blog-pills"><span class="blog-pill">Life</span><span class="blog-pill">Dehradun</span><span class="blog-pill">Hustle</span></div>
+      <div class="blog-pills"><span class="blog-pill">Trading</span><span class="blog-pill">Automation</span></div>
     </article>
 
   </div>
