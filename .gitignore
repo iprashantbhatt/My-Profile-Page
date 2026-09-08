@@ -20,3 +20,6 @@ firebase-adminsdk*.json
 .aws/
 .ssh/
 .npmrc
+*.bak
+*.bak2
+watch-commit.sh
