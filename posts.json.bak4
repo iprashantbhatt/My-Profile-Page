@@ -41,20 +41,18 @@
     "date": "May 2025",
     "tagInline": "AI · 5 min read",
     "title": "How I Built My Own GPT Assistant",
-    "teaser": "An Express + Passport.js chat app running Llama 3.2 via NVIDIA's API, with theme-switching and Brave-powered search live.",
+    "teaser": "A liquid-glass chat interface powered by NVIDIA Nemotron, with theme-switching and search mode live, image gen and OAuth still in progress.",
     "tags": [
-      "Express.js",
-      "Passport.js",
-      "NVIDIA API",
+      "GPT-4o",
+      "AI",
       "Build"
     ],
     "paragraphs": [
-      "PrashantGPT isn't a wrapper around a single API call — it's a full chat interface I built from scratch, with an Express.js backend and a liquid-glass frontend with four full themes (Aurora, Sunset, Arctic, Obsidian), each one swapping the entire color system, gradients, and glow effects live via a draggable floating theme switcher. No page reload, no flicker — just CSS custom properties doing the heavy lifting.",
-      "On the model side, it routes through NVIDIA's integrate.api.nvidia.com endpoint, currently running Meta's Llama 3.2 11B Vision Instruct rather than a proprietary API — a deliberate choice to keep inference costs predictable while still getting a genuinely capable model. Every request carries a custom system prompt that defines PrashantGPT's identity, tone, and core expertise areas explicitly, so responses stay grounded in banking, agentic AI, web design, and blockchain rather than drifting into generic chatbot territory.",
-      "The part I'm most proud of isn't the chat itself, it's the \"Prompt Inspiration\" generator built into the input bar. Instead of staring at a blank textbox, you pick topics — Blockchain, Agentic AI, Web Design, Banking & Finance, Dehradun, whatever fits — and it calls a dedicated backend endpoint to draft a tailored starter prompt for you. There's also a toggleable web search mode wired to the Brave Search API, so the same input can either chat with the model or pull live results, depending on which mode is active.",
-      "Auth runs on Passport.js with the passport-google-oauth20 strategy, backed by express-session for cookie-based sessions — httpOnly, sameSite lax, a week-long maxAge — so a login persists without exposing anything to client-side JavaScript. Helmet handles security headers and CORS is scoped to GET/POST only, small hardening details that matter once something is public-facing rather than a local script only I ever touch. Image generation and the OAuth flow are both wired into the interface, though they're still under construction on the backend — the UI is ready, the plumbing behind them isn't fully live yet.",
-      "Every design decision here came from using it daily: the chat history sidebar, the auto-resizing input, the streaming-style typing indicator — all added because I got annoyed at their absence, not because a spec asked for them. That's also why unfinished pieces ship visible rather than hidden — I'd rather build in the open and finish them properly than fake a demo.",
-      "It now lives at gpt.prashantbhatt.net and already handles a good chunk of my day-to-day drafting, research, and quick lookups — proof that a genuinely useful personal AI tool doesn't need a team behind it, just Express, a session store, one solid model endpoint, and enough friction in the free tools to justify building your own."
+      "PrashantGPT isn't a wrapper around a single API call — it's a full chat interface I built from scratch, running on NVIDIA's Nemotron models on the backend instead of the usual OpenAI/Anthropic API. The frontend is a liquid-glass interface with four full themes (Aurora, Sunset, Arctic, Obsidian), each one swapping the entire color system, gradients, and glow effects live via a draggable floating theme switcher — no page reload, no flicker.",
+      "The part I'm most proud of isn't the chat itself, it's the \"Prompt Inspiration\" generator built into the input bar. Instead of staring at a blank textbox, you pick topics — Blockchain, Agentic AI, Web Design, Banking & Finance, Dehradun, whatever fits — and it calls a dedicated backend endpoint to draft a tailored starter prompt for you. It's a small feature, but it changes how often I actually use the tool versus just thinking about using it.",
+      "There's a toggleable web search mode already working, baked directly into the same input — flip it on and the same textbox routes to a search API instead of the chat model, rendering live results inline instead of a chat reply. Image generation and Google OAuth login are both wired into the interface too, though they're still under construction on the backend — the UI is ready, the plumbing behind them isn't fully live yet.",
+      "Every design decision here came from using it daily: the chat history sidebar, the auto-resizing input, the streaming-style typing indicator — all added because I got annoyed at their absence, not because a spec asked for them. That's also why image gen and login are shipping as visible-but-unfinished rather than hidden — I'd rather build in the open and finish them properly than fake a demo.",
+      "It now lives at gpt.prashantbhatt.net and already handles a good chunk of my day-to-day drafting, research, and quick lookups — proof that a genuinely useful personal AI tool doesn't need a team behind it, just enough friction in the free tools to justify building your own."
     ]
   },
   {
