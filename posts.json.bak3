@@ -41,18 +41,16 @@
     "date": "May 2025",
     "tagInline": "AI · 5 min read",
     "title": "How I Built My Own GPT Assistant",
-    "teaser": "A liquid-glass chat interface powered by NVIDIA Nemotron, with theme-switching and search mode live, image gen and OAuth still in progress.",
+    "teaser": "Training a personal AI on my own writing style, financial background, and the projects I keep building.",
     "tags": [
       "GPT-4o",
       "AI",
       "Build"
     ],
     "paragraphs": [
-      "PrashantGPT isn't a wrapper around a single API call — it's a full chat interface I built from scratch, running on NVIDIA's Nemotron models on the backend instead of the usual OpenAI/Anthropic API. The frontend is a liquid-glass interface with four full themes (Aurora, Sunset, Arctic, Obsidian), each one swapping the entire color system, gradients, and glow effects live via a draggable floating theme switcher — no page reload, no flicker.",
-      "The part I'm most proud of isn't the chat itself, it's the \"Prompt Inspiration\" generator built into the input bar. Instead of staring at a blank textbox, you pick topics — Blockchain, Agentic AI, Web Design, Banking & Finance, Dehradun, whatever fits — and it calls a dedicated backend endpoint to draft a tailored starter prompt for you. It's a small feature, but it changes how often I actually use the tool versus just thinking about using it.",
-      "There's a toggleable web search mode already working, baked directly into the same input — flip it on and the same textbox routes to a search API instead of the chat model, rendering live results inline instead of a chat reply. Image generation and Google OAuth login are both wired into the interface too, though they're still under construction on the backend — the UI is ready, the plumbing behind them isn't fully live yet.",
-      "Every design decision here came from using it daily: the chat history sidebar, the auto-resizing input, the streaming-style typing indicator — all added because I got annoyed at their absence, not because a spec asked for them. That's also why image gen and login are shipping as visible-but-unfinished rather than hidden — I'd rather build in the open and finish them properly than fake a demo.",
-      "It now lives at gpt.prashantbhatt.net and already handles a good chunk of my day-to-day drafting, research, and quick lookups — proof that a genuinely useful personal AI tool doesn't need a team behind it, just enough friction in the free tools to justify building your own."
+      "I wanted an assistant that actually knew my writing style, my financial background, and the projects I keep coming back to — not a generic chatbot starting from zero every time. So I built one, trained on my own knowledge base rather than relying purely on a stock system prompt.",
+      "The interesting part wasn't the model itself, it was the retrieval layer around it — deciding what context to feed in, when to trust the model's own reasoning versus pulling in my notes, and how to keep responses feeling like me rather than a template.",
+      "It now lives at gpt.prashantbhatt.net and handles a good chunk of my day-to-day drafting and research — a small but genuinely useful piece of infrastructure I built for myself first."
     ]
   },
   {
