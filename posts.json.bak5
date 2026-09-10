@@ -1,23 +1,5 @@
 [
   {
-    "slug": "ai-millennium-prize-claim",
-    "icon": "🧮",
-    "date": "Sep 10, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "An AI Claims It Cracked a Millennium Prize Problem — and the Credit Fight Started Immediately",
-    "teaser": "OpenAI says a model solved a Millennium Prize-level math problem in 88 hours. The math world isn't just impressed, it's arguing.",
-    "tags": [
-      "AI",
-      "OpenAI",
-      "Math"
-    ],
-    "paragraphs": [
-      "OpenAI is claiming one of its systems worked through a Millennium Prize-tier math problem in roughly 88 hours of compute — the kind of open problem that's stumped human mathematicians for years. Almost immediately, the story became less about the result and more about who actually gets credit for it: the model, the researchers who set up the approach, or the mathematicians whose decades of prior work the system was effectively standing on.",
-      "That argument is worth paying attention to, because it's going to repeat constantly as these systems get better at genuine research-level work rather than just summarizing it. A model finding a proof path a human would take months to find isn't the same as a model \"discovering\" math from nothing — most of the heavy lifting is still built on a mountain of human-published results it was trained on.",
-      "The more interesting question isn't whether AI can do this — it clearly increasingly can — it's how research fields adapt their credit and verification norms once a huge chunk of the exploratory grind gets automated. Mathematicians already have to formally verify proofs regardless of who or what produced them; that discipline might end up being exactly what keeps this transition honest instead of chaotic."
-    ]
-  },
-  {
     "slug": "mistral-3b-series-d",
     "icon": "🇪🇺",
     "date": "Sep 09, 2026",
