@@ -1,23 +1,5 @@
 [
   {
-    "slug": "oracle-cloud-ai-demand",
-    "icon": "☁️",
-    "date": "Sep 11, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "Oracle's Cloud Numbers Show Just How Hungry AI Demand Still Is",
-    "teaser": "121% growth in cloud infrastructure revenue and $664B in future bookings — the AI infrastructure buildout isn't slowing down at all.",
-    "tags": [
-      "AI",
-      "Infrastructure",
-      "Cloud"
-    ],
-    "paragraphs": [
-      "Oracle just reported cloud infrastructure revenue up 121% year-over-year, and more strikingly, its backlog of future contracted revenue jumped by over $200B in a single quarter to reach $664B. That's not incremental growth — that's a company that was a distant fourth in cloud suddenly sitting on a wall of AI compute demand it's racing to build capacity for.",
-      "The detail that stands out is over 300,000 GPUs delivered to AI cloud customers in one quarter, nearly tripling their prior pace. Numbers like that aren't really about Oracle specifically — they're a proxy for how much raw compute the AI industry as a whole is still trying to buy, well past the point where skeptics expected demand to cool off.",
-      "For anyone building AI products, this is worth watching less as stock-market trivia and more as a supply signal: as long as backlogs like this keep growing faster than capacity gets built, GPU access and pricing stay a real constraint, not just an API line item. The infrastructure race underneath the models is still very much the story, even when it's not the flashy part."
-    ]
-  },
-  {
     "slug": "ai-millennium-prize-claim",
     "icon": "🧮",
     "date": "Sep 10, 2026",
