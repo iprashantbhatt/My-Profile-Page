@@ -1,23 +1,5 @@
 [
   {
-    "slug": "deepseek-v4-1-flash-adoption",
-    "icon": "⚡",
-    "date": "Sep 12, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "DeepSeek V4.1 Flash Processed a Trillion Tokens on Day One",
-    "teaser": "OpenRouter data shows DeepSeek's newest model burning through usage at a pace on track for 2.8 trillion tokens in 48 hours — mostly on dirt-cheap cached reads.",
-    "tags": [
-      "AI",
-      "DeepSeek",
-      "LLM"
-    ],
-    "paragraphs": [
-      "OpenRouter reported that DeepSeek's V4.1 Flash model processed one trillion tokens in its first 24 hours live, on pace for roughly 2.8 trillion within 48 hours. That's an enormous adoption curve for a model that's barely a day old — the kind of number that usually takes established models weeks to reach.",
-      "The detail that actually matters for anyone building on top of these APIs is the pricing: 90% of that volume was cache reads, priced at around $0.006 per million tokens — about five times cheaper than a comparable model like GLM-5.3 Flash. When cache-read pricing gets that low, it changes what's economically viable to build: multi-turn agents that repeatedly re-send large context windows suddenly cost a fraction of what they used to.",
-      "This is the quieter side of the AI race that doesn't get the headlines models like GPT or Claude do — Chinese open-weight labs iterating fast and undercutting on inference cost, which pressures the entire market toward cheaper tokens regardless of who's actually winning on raw capability. For indie builders especially, that price pressure is arguably worth more than another benchmark win."
-    ]
-  },
-  {
     "slug": "oracle-cloud-ai-demand",
     "icon": "☁️",
     "date": "Sep 11, 2026",
