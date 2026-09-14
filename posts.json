@@ -1,5 +1,41 @@
 [
   {
+    "slug": "ai-safety-global-race",
+    "icon": "🌍",
+    "date": "Sep 14, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "The AI Race Is Becoming a Global Safety Problem",
+    "teaser": "As AI leaders warn about losing control of advanced systems, governments are debating whether safety or speed should come first.",
+    "tags": [
+      "AI",
+      "AI Safety",
+      "Global Tech"
+    ],
+    "paragraphs": [
+      "The AI race is entering a new phase. Leaders from Anthropic, OpenAI, and Google DeepMind are discussing the need for stronger safety coordination as advanced AI systems become more capable. The concern is no longer limited to inaccurate answers or biased outputs. It is about what happens when AI agents can operate independently across digital systems.",
+      "The debate is now reaching governments. The UK is preparing discussions with major AI executives around shared principles for responsible development, while political leaders in the United States and China remain divided over how much regulation is appropriate. The central question is whether international cooperation can keep pace with the technology itself.",
+      "For the AI industry, this creates a difficult trade-off. Slower development could reduce immediate risks, but it could also create an advantage for competitors who continue moving quickly. The next stage of the AI race may therefore be decided not only by model performance, but by which companies and countries can build systems that are powerful, reliable, and controllable."
+    ]
+  },
+  {
+    "slug": "ai-labs-call-for-slowdown",
+    "icon": "🛑",
+    "date": "Sep 14, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "AI Labs Want to Slow Down. Markets Aren't So Sure.",
+    "teaser": "Anthropic's Dario Amodei is calling for a more deliberate pace in frontier AI development, with OpenAI and Google DeepMind also discussing stronger safety coordination.",
+    "tags": [
+      "AI",
+      "AI Safety",
+      "Industry"
+    ],
+    "paragraphs": [
+      "The biggest AI story today isn't a new model launch. It's a growing debate over whether frontier AI development is moving too fast. Anthropic CEO Dario Amodei has called for a more deliberate pace, warning that increasingly capable AI systems need stronger safeguards. OpenAI's Sam Altman and Google DeepMind's Demis Hassabis have also backed the need for greater safety coordination.",
+      "The market reaction was immediate. AI-related stocks fell as investors worried that a slower development cycle could affect the enormous spending boom around chips, data centers, and AI infrastructure. It highlights an uncomfortable reality: much of the industry's valuation depends on the assumption that AI capabilities will keep accelerating.",
+      "But the difficult question is whether a slowdown can actually work. If one company or country holds back while others continue racing forward, coordination becomes difficult. The debate is no longer just about building smarter models. It is about who decides how quickly they should be developed, how safety is verified, and whether the world's leading AI labs can agree on meaningful limits."
+    ]
+  },
+  {
     "slug": "ai-labs-pacing-consensus",
     "icon": "🛑",
     "date": "Sep 14, 2026",
