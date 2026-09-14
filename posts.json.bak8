@@ -1,23 +1,5 @@
 [
   {
-    "slug": "ai-labs-pacing-consensus",
-    "icon": "🛑",
-    "date": "Sep 14, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "When the Labs Building AI Start Asking Each Other to Slow Down",
-    "teaser": "Anthropic, OpenAI, and Google DeepMind are converging around deliberate pacing — and markets reacted before the ink was even dry.",
-    "tags": [
-      "AI",
-      "AI Safety",
-      "Industry"
-    ],
-    "paragraphs": [
-      "The story that actually moved markets today wasn't a new model launch — it was the opposite. Reports surfaced that Anthropic, OpenAI, and Google DeepMind have been quietly converging on a shared \"pacing\" stance: deliberately slowing certain frontier development decisions rather than racing flat out. Microsoft's Satya Nadella even published a note the same weekend saying he welcomes the deliberate pacing needed to get alignment right, alongside a new Code of Conduct for Microsoft's own models.",
-      "Asian and US futures dipped on the news, which tells you something about how much of the market's AI optimism was priced on unconstrained speed rather than steady, safety-conscious progress. It's a genuinely unusual moment: the companies with the most commercial incentive to move fast are the ones publicly floating the case for restraint.",
-      "The honest tension nobody's fully resolved yet is the one a lab CEO flagged directly this weekend — what happens if a competitor, or another country's labs, doesn't pace the same way. Coordinated caution only works as long as everyone actually coordinates, and right now that's a proposal being tested in public, not an agreement with teeth. Worth watching whether this becomes real industry norms or just a talking point that fades once the next big model launch resets the pace anyway."
-    ]
-  },
-  {
     "slug": "deepseek-v4-1-flash-adoption",
     "icon": "⚡",
     "date": "Sep 12, 2026",
