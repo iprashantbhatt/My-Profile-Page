@@ -1,5 +1,23 @@
 [
   {
+    "slug": "salesforce-agentforce-named-agents",
+    "icon": "👥",
+    "date": "Sep 14, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "Salesforce Just Gave Its AI Agents Names — and That's the Interesting Part",
+    "teaser": "Seven named Agentforce agents, one per business function, hint at where enterprise AI is actually headed: less 'chatbot', more coworker.",
+    "tags": [
+      "AI",
+      "Agentic AI",
+      "Enterprise"
+    ],
+    "paragraphs": [
+      "Salesforce shipped seven distinct Agentforce agents this week — Casey, Paige, Carter, Hunter, Marshall, Piper, and Fin — each one scoped to a specific business function: sales, service, commerce, IT/HR, supply chain, and CX. Not one general-purpose assistant wearing different hats, but seven separately branded agents with their own defined jobs.",
+      "The naming choice is a small thing that signals a bigger shift. Enterprise software has spent the last couple of years bolting a generic \"AI assistant\" onto every product. Giving each agent an actual name and a narrow job description is a bet that people work better with something that feels like a specific coworker with a defined role, rather than one omniscient bot that's supposed to do everything reasonably well.",
+      "It also mirrors something a lot of us building smaller multi-agent systems have already learned the hard way — a single do-everything agent tends to underperform a set of narrowly scoped agents with clear handoffs between them. Seeing that same architecture pattern show up at enterprise scale, with actual names attached, is a good signal that \"agent specialization\" isn't just a hobbyist pattern, it's becoming the default way serious AI products get structured."
+    ]
+  },
+  {
     "slug": "ai-safety-global-race",
     "icon": "🌍",
     "date": "Sep 14, 2026",

@@ -1,5 +1,23 @@
 [
   {
+    "slug": "ai-safety-global-race",
+    "icon": "🌍",
+    "date": "Sep 14, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "The AI Race Is Becoming a Global Safety Problem",
+    "teaser": "As AI leaders warn about losing control of advanced systems, governments are debating whether safety or speed should come first.",
+    "tags": [
+      "AI",
+      "AI Safety",
+      "Global Tech"
+    ],
+    "paragraphs": [
+      "The AI race is entering a new phase. Leaders from Anthropic, OpenAI, and Google DeepMind are discussing the need for stronger safety coordination as advanced AI systems become more capable. The concern is no longer limited to inaccurate answers or biased outputs. It is about what happens when AI agents can operate independently across digital systems.",
+      "The debate is now reaching governments. The UK is preparing discussions with major AI executives around shared principles for responsible development, while political leaders in the United States and China remain divided over how much regulation is appropriate. The central question is whether international cooperation can keep pace with the technology itself.",
+      "For the AI industry, this creates a difficult trade-off. Slower development could reduce immediate risks, but it could also create an advantage for competitors who continue moving quickly. The next stage of the AI race may therefore be decided not only by model performance, but by which companies and countries can build systems that are powerful, reliable, and controllable."
+    ]
+  },
+  {
     "slug": "ai-labs-call-for-slowdown",
     "icon": "🛑",
     "date": "Sep 14, 2026",
