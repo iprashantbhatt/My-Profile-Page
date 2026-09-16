@@ -1,5 +1,23 @@
 [
   {
+    "slug": "openai-gpt-live-voice",
+    "icon": "🎙️",
+    "date": "Sep 14, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "OpenAI's GPT-Live Kills the Text Pipeline for Voice AI",
+    "teaser": "Sub-300ms latency and native voice generation — GPT-Live skips the transcribe-think-speak chain that's made every voice assistant feel like it's on hold.",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "Voice"
+    ],
+    "paragraphs": [
+      "OpenAI launched GPT-Live, a native voice model now powering ChatGPT Voice, built to eliminate the old text-pipeline approach — speech-to-text, then a text model thinks, then text-to-speech reads the answer back. That chain is exactly why most voice assistants have always felt like talking to someone on a slight delay. GPT-Live processes audio natively instead, and OpenAI's claiming sub-300ms latency with actual emotional nuance in the responses.",
+      "The latency number matters more than it sounds like it should. Human conversation has natural turn-taking gaps well under a second — anything slower and a voice assistant stops feeling like a conversation and starts feeling like a walkie-talkie. Getting under 300ms is roughly the threshold where a voice AI can interrupt, react to tone, and hold a back-and-forth instead of just answering questions in sequence.",
+      "The bigger shift this points to is voice becoming a first-class interface again rather than a novelty wrapper around a text model. If native audio models keep closing the latency gap, the next wave of AI products probably won't default to a chat window at all — they'll default to something you just talk to, the way phone calls always worked before typing took over."
+    ]
+  },
+  {
     "slug": "salesforce-agentforce-named-agents",
     "icon": "👥",
     "date": "Sep 14, 2026",
