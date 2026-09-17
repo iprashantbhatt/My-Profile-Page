@@ -1,23 +1,5 @@
 [
   {
-    "slug": "mistral-mozilla-privacy-ai-browsing",
-    "icon": "🦊",
-    "date": "Sep 17, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "Mistral Teams Up With Mozilla to Bring Privacy Back to AI Browsing",
-    "teaser": "Fresh off its €21B raise, Mistral is partnering with Mozilla to give people real choice and control over AI in the browser.",
-    "tags": [
-      "AI",
-      "Mistral",
-      "Privacy"
-    ],
-    "paragraphs": [
-      "Mistral announced a partnership with Mozilla today aimed at bringing privacy, control, and choice to AI-powered browsing — a pairing that makes sense on paper: Mozilla's whole brand is built on not being Google or Meta, and Mistral has been positioning itself as Europe's answer to the same US-dominated AI landscape.",
-      "This lands just over a week after Mistral closed its €3B Series D, so the sequencing isn't an accident — funded, and immediately spending some of that credibility on a values-aligned partnership rather than just another API integration. Browser-level AI has mostly meant Google folding Gemini deeper into Chrome or Microsoft doing the same with Copilot in Edge; a Mistral-Mozilla option is the first real \"don't want your browsing data feeding a US ad-tech giant's model\" alternative.",
-      "Whether this actually ships something people use day to day, or stays a partnership press release, is the real test. But as a signal, it fits a pattern worth watching: European AI isn't just trying to build competitive models anymore, it's trying to build the privacy-respecting default that a chunk of users have been asking for since AI got bolted onto every browser."
-    ]
-  },
-  {
     "slug": "openai-gpt-live-voice",
     "icon": "🎙️",
     "date": "Sep 14, 2026",
