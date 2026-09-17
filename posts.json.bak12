@@ -1,23 +1,5 @@
 [
   {
-    "slug": "openai-sponsored-agents",
-    "icon": "📢",
-    "date": "Sep 17, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "ChatGPT Is Testing Ads You Can Actually Talk To",
-    "teaser": "OpenAI's Sponsored Agents let advertisers put a chattable bot inside ChatGPT itself — a genuinely new kind of ad unit, for better or worse.",
-    "tags": [
-      "AI",
-      "OpenAI",
-      "Advertising"
-    ],
-    "paragraphs": [
-      "OpenAI is testing Sponsored Agents — a feature that lets users chat directly with business-sponsored bots and click through to advertiser sites, with a handful of US advertisers already live. It's not a banner ad bolted onto a chat response, it's an entire conversational agent representing a brand, sitting inside the same interface you use for everything else.",
-      "This is a genuinely new ad format, not just a repackaged old one. Search ads worked because intent was explicit — you typed what you wanted. A sponsored agent inside a chat model can be conversational, persuasive, and adaptive in a way a static ad never could, which is exactly what makes it interesting and slightly uncomfortable at the same time: the line between \"the assistant helping you\" and \"the assistant selling to you\" gets a lot blurrier once both are the same chat window.",
-      "Worth noting as a contrast: not every AI product is heading this direction — some labs have explicitly ruled out ads in their consumer products entirely, on the logic that a chat interface people treat as a thinking space shouldn't double as an ad surface. Whether users end up preferring the free-but-monetized version or the ad-free one is going to be one of the more telling product experiments in AI this year."
-    ]
-  },
-  {
     "slug": "mistral-mozilla-privacy-ai-browsing",
     "icon": "🦊",
     "date": "Sep 17, 2026",
