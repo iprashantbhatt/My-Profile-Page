@@ -1,23 +1,5 @@
 [
   {
-    "slug": "lawzero-canada-germany-funding",
-    "icon": "🔬",
-    "date": "Sep 18, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "Two Governments Just Bet on an AI That Watches Other AI",
-    "teaser": "Canada and Germany are putting up to $150M each into Yoshua Bengio's LawZero — built around a 'Scientist AI' that monitors, not generates.",
-    "tags": [
-      "AI",
-      "AI Safety",
-      "Research"
-    ],
-    "paragraphs": [
-      "Canada and Germany each committed up to $150M in grants to LawZero, the Montreal-based non-profit Yoshua Bengio founded a few years back with a relatively modest $30M in philanthropic backing. The money was announced at Montreal's All In AI conference and is earmarked for hiring and compute behind \"Scientist AI\" — not a chatbot or an agent, but a monitoring-focused system designed to evaluate and flag what other AI systems are actually doing.",
-      "The framing is worth sitting with: most AI safety funding goes toward making frontier models behave better internally. LawZero's approach is closer to an independent auditor — a separate system whose job is oversight, not generation. Two national governments funding that directly, rather than just regulating after the fact, is a meaningfully different kind of bet than the usual policy-and-fines approach.",
-      "It's a small number next to what the frontier labs spend on compute, but the signal matters more than the dollar amount. Government money flowing into independent AI safety infrastructure — instead of only into the labs building the models themselves — is the kind of quiet structural shift that's easy to miss next to the bigger funding-round headlines, but might matter more for how this decade of AI actually plays out."
-    ]
-  },
-  {
     "slug": "openai-sponsored-agents",
     "icon": "📢",
     "date": "Sep 17, 2026",
