@@ -1,5 +1,23 @@
 [
   {
+    "slug": "claude-building-next-ai",
+    "icon": "🧠",
+    "date": "Sep 18, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "Claude Is Now Helping Build Its Own Successor",
+    "teaser": "Anthropic says Claude now leads 26% of its AI research and development work — up from almost nothing just months ago.",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "AI Agents"
+    ],
+    "paragraphs": [
+      "Anthropic says its Claude models are now playing a significant role in developing the company's next generation of AI. As of August, Claude was leading about 26% of Anthropic's model research and development work under human supervision, while participating in roughly 90% of R&D tasks in some form.",
+      "The interesting part isn't simply that AI is writing code. It's the feedback loop: an AI system is increasingly helping researchers design, test and improve the systems that will eventually replace or extend its own capabilities. Anthropic says the work is still supervised by humans, but the scale of AI involvement has changed dramatically compared with earlier this year.",
+      "That creates a new AI development dynamic. Labs aren't just using AI as a productivity tool anymore — they're using increasingly capable models inside the research pipeline itself. If that trend continues, measuring how much of frontier AI development is being performed by humans versus AI systems could become one of the most important metrics to watch."
+    ]
+  },
+  {
     "slug": "lawzero-canada-germany-funding",
     "icon": "🔬",
     "date": "Sep 18, 2026",
