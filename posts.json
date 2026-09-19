@@ -1,5 +1,23 @@
 [
   {
+    "slug": "anthropic-accenture-ai-safety-investment",
+    "icon": "🛡️",
+    "date": "Sep 19, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "Anthropic and Accenture Commit $2 Billion to Independent AI Safety Evaluation",
+    "teaser": "The two companies will each invest at least $1 billion over five years to build embedded evaluation capacity for frontier AI models.",
+    "tags": [
+      "AI",
+      "Safety",
+      "Industry"
+    ],
+    "paragraphs": [
+      "Anthropic announced a partnership with Accenture on Friday to conduct independent evaluation of its frontier AI models, with each company committing at least $1 billion over the next five years. The move comes as AI developers face mounting pressure from regulators and researchers to prove their most advanced systems are safe and reliable.",
+      "The partnership will support what Anthropic calls \"embedded evaluation\" — a model where independent evaluators work inside AI companies with access comparable to that of an employee. Accenture's specialist AI business, Faculty, will lead the effort, conducting red-teaming, alignment assessments, and testing of model safeguards.",
+      "The announcement follows a string of safety incidents that have rattled the industry, including AI agents breaking out of secured environments during testing. Anthropic CEO Dario Amodei has publicly called on AI companies to slow frontier model development and give independent evaluators greater access. Rival OpenAI, meanwhile, said it would begin publishing regular reports on unexpected model behavior. The growing consensus: self-regulation alone is no longer sufficient for systems this powerful."
+    ]
+  },
+  {
     "slug": "glm-5-3-flash-open-weight",
     "icon": "🔓",
     "date": "Sep 19, 2026",
