@@ -1,23 +1,5 @@
 [
   {
-    "slug": "glm-5-3-flash-open-weight",
-    "icon": "🔓",
-    "date": "Sep 19, 2026",
-    "tagInline": "AI · Daily Bite",
-    "title": "Z.ai's GLM-5.3-Flash Ships Multimodal AI Under an MIT License",
-    "teaser": "A 320B-parameter multimodal model with a 1M-token context window, fully open-weight — and priced at a fraction of closed alternatives.",
-    "tags": [
-      "AI",
-      "Open Source",
-      "GLM"
-    ],
-    "paragraphs": [
-      "Z.ai released GLM-5.3-Flash, the first natively multimodal model in the GLM-5 line — a 320B parameter model with an 18B active-parameter design, a full 1 million token context window, and MIT-licensed weights anyone can download and self-host. Listed API pricing sits around $0.15 per million input tokens and $0.50 per million output, a fraction of what comparable closed models charge.",
-      "The MIT license is the detail worth pausing on. A lot of \"open\" model releases still come with usage restrictions buried in custom licenses. MIT is about as permissive as it gets — no strings on commercial use, no gatekeeping on redistribution. Pairing that with genuine multimodal capability and a million-token context is a meaningfully different offer than most open releases, which usually trade one of those away to hit the others.",
-      "Self-reported benchmarks put it well ahead of the prior GLM-5.2 on coding-focused tests, which if it holds up in independent evals, makes this a real option for anyone who wants multimodal reasoning without depending on a closed API or paying closed-model prices. The open-weight ecosystem keeps closing gaps that used to only exist at the frontier — and every time that happens, it's one more reason smaller teams don't need a lab-scale budget to build something genuinely capable."
-    ]
-  },
-  {
     "slug": "claude-building-next-ai",
     "icon": "🧠",
     "date": "Sep 18, 2026",
