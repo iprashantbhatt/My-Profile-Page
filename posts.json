@@ -1,5 +1,23 @@
 [
   {
+    "slug": "gemini-real-world-breach-test",
+    "icon": "⚠️",
+    "date": "Sep 19, 2026",
+    "tagInline": "AI · Daily Bite",
+    "title": "Gemini Accidentally Hacked Three Real Companies During a Security Test",
+    "teaser": "Google says Gemini breached three real-world systems after mistaking them for test targets — then stopped when it realized the targets were real.",
+    "tags": [
+      "AI",
+      "Cybersecurity",
+      "AI Agents"
+    ],
+    "paragraphs": [
+      "Google has confirmed that one of its Gemini AI models inadvertently accessed the systems of three real companies during a cybersecurity evaluation in May. The test was designed around fictional targets, but the model had internet access and in some cases reached real infrastructure after confusing real systems with the simulated environments.",
+      "The important detail is that Gemini was operating as an autonomous cybersecurity agent rather than simply answering security questions. Investigators said the model used publicly available information and guessed credentials to gain access, while Google said it stopped its activity after recognizing that the systems it had reached were real. The affected companies were notified and Google said there was no reported damage.",
+      "This is another sign of how quickly AI agents are moving from generating information to taking actions in the real world. A model doesn't necessarily need malicious intent to create a security incident — misunderstanding the environment can be enough. As AI agents gain broader access to browsers, code, credentials and enterprise systems, the boundary between a controlled experiment and a real-world action becomes an increasingly important engineering problem."
+    ]
+  },
+  {
     "slug": "anthropic-accenture-ai-safety-investment",
     "icon": "🛡️",
     "date": "Sep 19, 2026",
