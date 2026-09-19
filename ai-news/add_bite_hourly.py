@@ -2,7 +2,6 @@ import json, shutil, re, urllib.request, html
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
-from urllib.parse import urljoin
 
 
 # ---- CONFIG ----
@@ -312,7 +311,9 @@ def pick_tags(title):
     ]):
         tags.append("AI Safety")
 
-    if any(w in t in ["regulat", "law", "policy", "govern"]):
+    if any(w in t for w in [
+        "regulat", "law", "policy", "govern"
+    ]):
         tags.append("Policy")
 
     if any(w in t for w in [
@@ -350,7 +351,7 @@ with open(path, "r", encoding="utf-8") as f:
     posts = json.load(f)
 
 
-# ---- REMOVE OUR TWO TEST POSTS ----
+# ---- REMOVE TEST POSTS ----
 
 test_slugs = {
     "opinion-this-well-meaning-ideology-feeling-ai-panic-has-a-dark-side",
@@ -411,7 +412,6 @@ slug = make_slug(title)
 
 now = datetime.now(timezone.utc)
 date_str = now.strftime("%b %d, %Y")
-
 
 new_post = {
     "slug": slug,
