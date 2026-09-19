@@ -2,6 +2,8 @@ import json, shutil, re, urllib.request, html
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from urllib.parse import urljoin
+
 
 # ---- CONFIG ----
 path = "/var/www/profile/posts.json"
@@ -13,12 +15,10 @@ RSS_URL = "https://news.google.com/rss/search?q=artificial+intelligence+when:1h&
 class ArticleParser(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.in_article = False
-        self.in_main = False
-        self.in_p = False
         self.skip_depth = 0
-        self.paragraphs = []
+        self.in_p = False
         self.current = []
+        self.paragraphs = []
 
     def handle_starttag(self, tag, attrs):
         tag = tag.lower()
@@ -29,16 +29,6 @@ class ArticleParser(HTMLParser):
 
         if self.skip_depth:
             return
-
-        attrs_dict = dict(attrs)
-        classes = (attrs_dict.get("class") or "").lower()
-        ident = (attrs_dict.get("id") or "").lower()
-
-        if tag == "article":
-            self.in_article = True
-
-        if tag == "main":
-            self.in_main = True
 
         if tag == "p":
             self.in_p = True
@@ -57,16 +47,12 @@ class ArticleParser(HTMLParser):
 
         if tag == "p" and self.in_p:
             text = clean_text(" ".join(self.current))
-            if len(text) >= 40:
+
+            if len(text) >= 50:
                 self.paragraphs.append(text)
+
             self.current = []
             self.in_p = False
-
-        if tag == "article":
-            self.in_article = False
-
-        if tag == "main":
-            self.in_main = False
 
     def handle_data(self, data):
         if self.skip_depth:
@@ -98,10 +84,7 @@ def fetch_url(url):
     )
 
     with urllib.request.urlopen(req, timeout=20) as resp:
-        final_url = resp.geturl()
-        data = resp.read()
-
-    return final_url, data
+        return resp.geturl(), resp.read()
 
 
 def fetch_rss(url):
@@ -129,39 +112,117 @@ def parse_rss(xml_bytes):
     return items
 
 
+def extract_jsonld_article_body(page):
+    bodies = []
+
+    scripts = re.findall(
+        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        page,
+        flags=re.I | re.S
+    )
+
+    for raw in scripts:
+        raw = html.unescape(raw).strip()
+
+        try:
+            data = json.loads(raw)
+        except Exception:
+            continue
+
+        objects = []
+
+        if isinstance(data, dict):
+            objects.append(data)
+
+            if isinstance(data.get("@graph"), list):
+                objects.extend(data["@graph"])
+
+        elif isinstance(data, list):
+            objects.extend(data)
+
+        for obj in objects:
+            if not isinstance(obj, dict):
+                continue
+
+            body = obj.get("articleBody")
+
+            if isinstance(body, str) and len(body.strip()) >= 300:
+                bodies.append(clean_text(body))
+
+    return bodies
+
+
+def extract_meta_description(page):
+    patterns = [
+        r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']',
+        r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']'
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, page, flags=re.I | re.S)
+
+        if match:
+            text = clean_text(match.group(1))
+
+            if len(text) >= 100:
+                return text
+
+    return ""
+
+
 def extract_article(url):
     try:
         final_url, html_bytes = fetch_url(url)
 
-        charset = "utf-8"
+        page = html_bytes.decode("utf-8", errors="ignore")
 
-        match = re.search(
-            rb'<meta[^>]+charset=["\']?([^"\'> ]+)',
-            html_bytes[:10000],
-            re.I
-        )
+        print(f"Resolved URL: {final_url}")
 
-        if match:
-            try:
-                charset = match.group(1).decode("ascii", errors="ignore")
-            except Exception:
-                pass
+        # ---- METHOD 1: JSON-LD articleBody ----
 
-        text = html_bytes.decode(charset, errors="ignore")
+        jsonld_bodies = extract_jsonld_article_body(page)
+
+        if jsonld_bodies:
+            body = max(jsonld_bodies, key=len)
+
+            sentences = re.split(r"(?<=[.!?])\s+", body)
+
+            paragraphs = []
+            current = []
+
+            for sentence in sentences:
+                sentence = sentence.strip()
+
+                if not sentence:
+                    continue
+
+                current.append(sentence)
+
+                if len(" ".join(current)) >= 450:
+                    paragraphs.append(" ".join(current))
+                    current = []
+
+                if len(paragraphs) >= 5:
+                    break
+
+            if current and len(" ".join(current)) >= 100:
+                paragraphs.append(" ".join(current))
+
+            if len(paragraphs) >= 2:
+                return paragraphs[:5], final_url
+
+        # ---- METHOD 2: Normal HTML paragraphs ----
 
         parser = ArticleParser()
-        parser.feed(text)
+        parser.feed(page)
 
-        paragraphs = parser.paragraphs
-
-        # Remove duplicate paragraphs
-        cleaned = []
+        paragraphs = []
         seen = set()
 
-        for p in paragraphs:
+        for p in parser.paragraphs:
             p = clean_text(p)
 
-            if len(p) < 40:
+            if len(p) < 50:
                 continue
 
             key = p.lower()
@@ -170,29 +231,30 @@ def extract_article(url):
                 continue
 
             seen.add(key)
-            cleaned.append(p)
+            paragraphs.append(p)
 
-        # Keep only meaningful article paragraphs
-        cleaned = cleaned[:12]
+        if len(paragraphs) >= 3:
+            return paragraphs[:5], final_url
 
-        return cleaned, final_url
+        # ---- METHOD 3: Meta description ----
+
+        meta = extract_meta_description(page)
+
+        if meta:
+            return [meta], final_url
+
+        return [], final_url
 
     except Exception as e:
         print(f"Article extraction failed: {e}")
         return [], url
 
 
-def make_slug(title):
-    slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
-    return slug[:80]
-
-
 def clean_title(title):
     title = clean_text(title)
 
-    # Remove common Google News publisher suffixes
     title = re.sub(
-        r"\s+[-|–—]\s+[A-Za-z0-9 .&']{2,40}$",
+        r"\s+[-|–—]\s+[A-Za-z0-9 .&']{2,50}$",
         "",
         title
     )
@@ -200,32 +262,22 @@ def clean_title(title):
     return title.strip()
 
 
-def make_paragraphs(title, rss_desc, article_paragraphs):
-    if len(article_paragraphs) >= 3:
-        return article_paragraphs[:5]
+def make_slug(title):
+    slug = re.sub(
+        r"[^a-z0-9]+",
+        "-",
+        title.lower()
+    ).strip("-")
 
-    desc = clean_text(rss_desc)
-
-    if desc:
-        return [
-            desc,
-            "The report highlights another example of how increasingly capable AI systems are moving beyond simple text generation and into real-world tasks and decision-making.",
-            "As AI agents gain access to tools, networks and external systems, reliable testing, clear boundaries and human oversight become increasingly important."
-        ]
-
-    return [
-        f"{title}.",
-        "The story is developing and additional details are expected as more information becomes available.",
-        "Further reporting will help clarify the broader implications of the development."
-    ]
+    return slug[:80]
 
 
 def pick_icon(title):
     t = title.lower()
 
     if any(w in t for w in [
-        "safety", "risk", "hack", "breach", "warning",
-        "attack", "security", "cyber"
+        "safety", "risk", "hack", "breach",
+        "warning", "attack", "security", "cyber"
     ]):
         return "⚠️"
 
@@ -251,19 +303,16 @@ def pick_tags(title):
     t = title.lower()
     tags = ["AI"]
 
-    if any(w in t for w in [
-        "open", "source", "weight"
-    ]):
+    if any(w in t for w in ["open", "source", "weight"]):
         tags.append("Open Source")
 
     if any(w in t for w in [
-        "safety", "risk", "hack", "breach", "security", "cyber"
+        "safety", "risk", "hack", "breach",
+        "security", "cyber"
     ]):
         tags.append("AI Safety")
 
-    if any(w in t for w in [
-        "regulat", "law", "policy", "govern"
-    ]):
+    if any(w in t in ["regulat", "law", "policy", "govern"]):
         tags.append("Policy")
 
     if any(w in t for w in [
@@ -293,42 +342,7 @@ if not items:
     raise SystemExit(0)
 
 
-# ---- PICK TOP ITEM ----
-
-item = items[0]
-
-rss_title = clean_title(item["title"])
-rss_desc = clean_text(item["desc"])
-article_url = item["link"]
-
-print(f"Selected news: {rss_title}")
-print(f"Fetching article: {article_url}")
-
-
-# ---- EXTRACT ACTUAL ARTICLE ----
-
-article_paragraphs, final_url = extract_article(article_url)
-
-if article_paragraphs:
-    print(f"Article paragraphs extracted: {len(article_paragraphs)}")
-else:
-    print("Full article text could not be extracted. Using RSS description.")
-
-
-title = rss_title
-slug = make_slug(title)
-
-now = datetime.now(timezone.utc)
-date_str = now.strftime("%b %d, %Y")
-
-paragraphs = make_paragraphs(
-    title,
-    rss_desc,
-    article_paragraphs
-)
-
-
-# ---- LOAD ----
+# ---- LOAD EXISTING POSTS ----
 
 shutil.copy(path, backup_path)
 
@@ -336,14 +350,67 @@ with open(path, "r", encoding="utf-8") as f:
     posts = json.load(f)
 
 
-# ---- DUPLICATE / REPAIR CHECK ----
+# ---- REMOVE OUR TWO TEST POSTS ----
 
-existing_index = None
+test_slugs = {
+    "opinion-this-well-meaning-ideology-feeling-ai-panic-has-a-dark-side",
+    "a-world-of-difference-in-10-days-the-changing-course-of-ai"
+}
 
-for i, p in enumerate(posts):
-    if p.get("slug") == slug:
-        existing_index = i
-        break
+before = len(posts)
+
+posts = [
+    p for p in posts
+    if p.get("slug") not in test_slugs
+]
+
+removed = before - len(posts)
+
+if removed:
+    print(f"Removed {removed} test post(s).")
+
+
+# ---- PICK TOP NEWS ----
+
+item = items[0]
+
+title = clean_title(item["title"])
+rss_desc = clean_text(item["desc"])
+article_url = item["link"]
+
+print(f"Selected news: {title}")
+print(f"Fetching article: {article_url}")
+
+
+# ---- EXTRACT ACTUAL ARTICLE ----
+
+paragraphs, final_url = extract_article(article_url)
+
+
+if len(paragraphs) < 2:
+    print("Full article could not be extracted.")
+    print("Post skipped. No weak RSS-only post will be created.")
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            posts,
+            f,
+            indent=2,
+            ensure_ascii=False
+        )
+
+    raise SystemExit(0)
+
+
+print(f"Article paragraphs extracted: {len(paragraphs)}")
+
+
+# ---- CREATE POST ----
+
+slug = make_slug(title)
+
+now = datetime.now(timezone.utc)
+date_str = now.strftime("%b %d, %Y")
 
 
 new_post = {
@@ -352,14 +419,20 @@ new_post = {
     "date": date_str,
     "tagInline": "AI · Hourly Brief",
     "title": title[:120],
-    "teaser": (
-        paragraphs[0][:200]
-        if paragraphs
-        else title[:200]
-    ),
+    "teaser": paragraphs[0][:200],
     "tags": pick_tags(title),
-    "paragraphs": paragraphs
+    "paragraphs": paragraphs[:5]
 }
+
+
+# ---- DUPLICATE CHECK ----
+
+existing_index = None
+
+for i, p in enumerate(posts):
+    if p.get("slug") == slug:
+        existing_index = i
+        break
 
 
 if existing_index is not None:
@@ -372,7 +445,6 @@ if existing_index is not None:
         str(x) for x in existing_paragraphs
     )
 
-    # Repair old malformed/short posts
     if len(existing_text) < 500 or len(existing_paragraphs) < 3:
 
         posts[existing_index] = new_post
@@ -382,6 +454,15 @@ if existing_index is not None:
     else:
 
         print(f"Post already exists and looks complete: {slug}")
+
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(
+                posts,
+                f,
+                indent=2,
+                ensure_ascii=False
+            )
+
         raise SystemExit(0)
 
 else:
@@ -403,4 +484,4 @@ with open(path, "w", encoding="utf-8") as f:
 
 
 print(f"Total posts now: {len(posts)}")
-print(f"Paragraphs saved: {len(paragraphs)}")
+print(f"Paragraphs saved: {len(new_post['paragraphs'])}")
