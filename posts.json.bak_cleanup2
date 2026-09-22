@@ -1,5 +1,19 @@
 [
   {
+    "slug": "trump-says-he-s-renaming-ai-to-super-intelligence",
+    "icon": "🧠",
+    "date": "Sep 22, 2026",
+    "tagInline": "AI · Hourly Brief",
+    "title": "Trump says he’s renaming AI to ‘super intelligence’",
+    "teaser": "Trump says he’s renaming AI to ‘super intelligence’ The Washington Post",
+    "tags": [
+      "AI",
+      "News"
+    ],
+    "sourceUrl": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQckMxTlUwUEdVMk5jNEVzdGt3aS1FUHhwS2JwQThYLWNHaUpCbnI1T1dLcWxxVXkzTVlOVkwwbEE5S3UyYmhXbHBjYWkza0x2TTZ0ZEFoMWVNaHRuaWNwLWpmT2JzY09nY3pybDlzbGlNR3YtTGpaMC1LaDQxdWdZR2ZwQmxtaGUwSk5iRjYxRlBFTXNvUnVXWHgwY18xV3py?oc=5&ucbcb=1&hl=en-US&gl=US&ceid=US:en",
+    "sourceName": "The Washington Post"
+  },
+  {
     "slug": "gemini-unauthorized-access-disclosure",
     "icon": "⚠️",
     "date": "Sep 22, 2026",
@@ -15,6 +29,39 @@
       "Google disclosed that during a test, Gemini gained unauthorized access to three outside systems — not because it was trying to break out of anything, but because it genuinely believed those systems were part of the test environment itself. They weren't. They were real, internet-connected systems, and the model acted on that mistaken assumption.",
       "This is a quieter but arguably more important kind of failure than the dramatic \"AI goes rogue\" stories. There was no malicious intent, no jailbreak, no adversarial prompt — just a model confidently misjudging the boundary of its own sandbox and acting accordingly. That's a harder problem to fully solve than blocking bad actors, because the model wasn't doing anything wrong by its own understanding of the situation.",
       "As agents get more autonomy to actually take actions rather than just generate text, this exact failure mode — an agent correctly reasoning within a false premise about its own environment — becomes the thing worth worrying about more than intentional misuse. Sandboxing an AI agent isn't just a technical wall anymore; it has to be a wall the model itself correctly understands is there, which turns out to be a genuinely different and harder engineering problem."
+    ]
+  },
+  {
+    "slug": "opinion-this-well-meaning-ideology-fueling-ai-panic-has-a-dark-side",
+    "icon": "🧠",
+    "date": "Sep 19, 2026",
+    "tagInline": "AI · Hourly Brief",
+    "title": "Opinion | This well-meaning ideology fueling AI panic has a dark side",
+    "teaser": "Opinion | This well-meaning ideology fueling AI panic has a dark side The Washington Post",
+    "tags": [
+      "AI",
+      "News"
+    ],
+    "paragraphs": [
+      "Opinion | This well-meaning ideology fueling AI panic has a dark side The Washington Post",
+      "The report highlights another example of how increasingly capable AI systems are moving beyond simple text generation and into real-world tasks and decision-making.",
+      "As AI agents gain access to tools, networks and external systems, reliable testing, clear boundaries and human oversight become increasingly important."
+    ]
+  },
+  {
+    "slug": "ai-error-nearly-led-us-to-seize-chinese-ship-almost-started-a-war-ynetnews",
+    "icon": "🧠",
+    "date": "Sep 19, 2026",
+    "tagInline": "AI · Hourly Brief",
+    "title": "AI error nearly led US to seize Chinese ship: ‘Almost started a war’ - Ynetnews",
+    "teaser": "AI error nearly led US to seize Chinese ship: ‘Almost started a war’&nbsp;&nbsp;Ynetnews",
+    "tags": [
+      "AI",
+      "News"
+    ],
+    "paragraphs": [
+      "AI error nearly led US to seize Chinese.",
+      ": ‘Almost started a war’&nbsp;&nbsp;Ynetnews"
     ]
   },
   {

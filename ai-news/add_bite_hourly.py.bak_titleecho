@@ -15,16 +15,6 @@ def is_boilerplate(text):
     t = (text or "").lower()
     return any(marker in t for marker in BOILERPLATE_MARKERS)
 
-def is_title_echo(teaser, title):
-    if not teaser or not title:
-        return False
-    t = teaser.lower().strip()
-    ti = title.lower().strip()
-    prefix_len = min(35, len(ti))
-    if prefix_len >= 15 and t.startswith(ti[:prefix_len]):
-        return True
-    return False
-
 def clean_text(text):
     text = html.unescape(text or "")
     text = re.sub(r"<[^>]+>", " ", text)
@@ -161,15 +151,12 @@ item, title, slug = chosen
 print(f"Selected news: {title}")
 
 teaser, source_url = extract_one_paragraph(item["link"])
-if not teaser or is_boilerplate(teaser) or is_title_echo(teaser, title):
+if not teaser or is_boilerplate(teaser):
     rss_desc = clean_text(item["desc"])[:MAX_TEASER_CHARS]
-    if is_boilerplate(rss_desc) or is_title_echo(rss_desc, title):
-        teaser = ""
-    else:
-        teaser = rss_desc
+    teaser = "" if is_boilerplate(rss_desc) else rss_desc
 
-if not teaser or is_boilerplate(teaser) or is_title_echo(teaser, title):
-    print("No usable summary found (only boilerplate or a title echo). Skipping this item for now.")
+if not teaser or is_boilerplate(teaser):
+    print("No usable summary found (only generic boilerplate). Skipping this item for now.")
     raise SystemExit(0)
 
 source_name = item["source"] or get_domain(source_url)
