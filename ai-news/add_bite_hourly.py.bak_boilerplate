@@ -6,14 +6,6 @@ path = "/var/www/profile/posts.json"
 backup_path = path + ".bak_hourly"
 RSS_URL = "https://news.google.com/rss/search?q=artificial+intelligence+when:1h&hl=en-US&gl=US&ceid=US:en"
 MAX_TEASER_CHARS = 280
-BOILERPLATE_MARKERS = [
-    "comprehensive up-to-date news coverage",
-    "aggregated from sources all over the world",
-]
-
-def is_boilerplate(text):
-    t = (text or "").lower()
-    return any(marker in t for marker in BOILERPLATE_MARKERS)
 
 def clean_text(text):
     text = html.unescape(text or "")
@@ -64,7 +56,7 @@ def extract_one_paragraph(url):
         page = html_bytes.decode("utf-8", errors="ignore")
 
         meta = extract_meta_description(page)
-        if meta and not is_boilerplate(meta):
+        if meta:
             return meta[:MAX_TEASER_CHARS].rsplit(" ", 1)[0] + ("…" if len(meta) > MAX_TEASER_CHARS else ""), final_url
 
         p_match = re.search(r"<p[^>]*>(.*?)</p>", page, flags=re.I | re.S)
@@ -151,12 +143,11 @@ item, title, slug = chosen
 print(f"Selected news: {title}")
 
 teaser, source_url = extract_one_paragraph(item["link"])
-if not teaser or is_boilerplate(teaser):
-    rss_desc = clean_text(item["desc"])[:MAX_TEASER_CHARS]
-    teaser = "" if is_boilerplate(rss_desc) else rss_desc
+if not teaser:
+    teaser = clean_text(item["desc"])[:MAX_TEASER_CHARS]
 
-if not teaser or is_boilerplate(teaser):
-    print("No usable summary found (only generic boilerplate). Skipping this item for now.")
+if not teaser:
+    print("Could not get any summary text. Skipping.")
     raise SystemExit(0)
 
 source_name = item["source"] or get_domain(source_url)
