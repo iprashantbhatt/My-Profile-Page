@@ -54,8 +54,6 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg1); 
 .post-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 7vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.15; color: var(--text-primary); margin-bottom: 20px; }
 .post-body p { font-size: 15px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 16px; }
 .post-body p:last-child { margin-bottom: 0; }
-.post-source-link { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
-.post-source-link:hover { text-decoration: underline; }
 .post-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--glass-border); }
 .post-pill { padding: 5px 13px; border-radius: 100px; background: var(--tag-bg); border: 1px solid var(--tag-border); font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: var(--accent); }
 .footer-tag { text-align: center; margin-top: 26px; font-size: 11.5px; color: var(--text-meta); letter-spacing: 0.3px; }
@@ -129,29 +127,14 @@ if (!slug) {
         return;
       }
       document.getElementById('pageTitle').textContent = post.title + ' — Prashant Bhatt';
+      const paragraphsHtml = post.paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n');
       const pillsHtml = post.tags.map(t => `<span class="post-pill">${escapeHtml(t)}</span>`).join('');
-
-      let bodyHtml = '';
-      let sourceLinkHtml = '';
-
-      if (Array.isArray(post.paragraphs) && post.paragraphs.length > 0) {
-        bodyHtml = post.paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n');
-      } else if (post.teaser) {
-        bodyHtml = `<p>${escapeHtml(post.teaser)}</p>`;
-      }
-
-      if (post.sourceUrl) {
-        const sourceLabel = post.sourceName ? escapeHtml(post.sourceName) : 'the original source';
-        sourceLinkHtml = `<a href="${post.sourceUrl}" target="_blank" rel="noopener noreferrer" class="post-source-link">Read the full article on ${sourceLabel} →</a>`;
-      }
-
       container.innerHTML = `
         <article class="post-card">
           <div class="post-icon">${post.icon}</div>
           <div class="post-meta">${escapeHtml(post.date)} · ${escapeHtml(post.tagInline)}</div>
           <h1 class="post-title">${escapeHtml(post.title)}</h1>
-          <div class="post-body">${bodyHtml}</div>
-          ${sourceLinkHtml}
+          <div class="post-body">${paragraphsHtml}</div>
           <div class="post-pills">${pillsHtml}</div>
         </article>
       `;
