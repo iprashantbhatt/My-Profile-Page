@@ -145,42 +145,32 @@ with open(path, "r", encoding="utf-8") as f:
 
 existing_slugs = {p.get("slug") for p in posts}
 
-candidates = []
+chosen = None
 for item in items:
     title = clean_title(item["title"])
     slug = make_slug(title)
     if slug not in existing_slugs:
-        candidates.append((item, title, slug))
+        chosen = (item, title, slug)
+        break
 
-if not candidates:
+if not chosen:
     print("All recent items already posted. Nothing to add.")
     raise SystemExit(0)
 
-print(f"{len(candidates)} candidate item(s) not yet posted. Trying each until one has a usable summary...")
-
-item = title = slug = teaser = source_url = None
-for cand_item, cand_title, cand_slug in candidates:
-    print(f"  Trying: {cand_title}")
-    cand_teaser, cand_source_url = extract_one_paragraph(cand_item["link"])
-    if not cand_teaser or is_boilerplate(cand_teaser) or is_title_echo(cand_teaser, cand_title):
-        rss_desc = clean_text(cand_item["desc"])[:MAX_TEASER_CHARS]
-        if is_boilerplate(rss_desc) or is_title_echo(rss_desc, cand_title):
-            cand_teaser = ""
-        else:
-            cand_teaser = rss_desc
-
-    if cand_teaser and not is_boilerplate(cand_teaser) and not is_title_echo(cand_teaser, cand_title):
-        item, title, slug, teaser, source_url = cand_item, cand_title, cand_slug, cand_teaser, cand_source_url
-        print(f"  -> Usable summary found for: {cand_title}")
-        break
-    else:
-        print(f"  -> No usable summary (boilerplate/title-echo), trying next candidate...")
-
-if not item:
-    print("Checked all available items this run — none had a usable summary. Will try again next run.")
-    raise SystemExit(0)
-
+item, title, slug = chosen
 print(f"Selected news: {title}")
+
+teaser, source_url = extract_one_paragraph(item["link"])
+if not teaser or is_boilerplate(teaser) or is_title_echo(teaser, title):
+    rss_desc = clean_text(item["desc"])[:MAX_TEASER_CHARS]
+    if is_boilerplate(rss_desc) or is_title_echo(rss_desc, title):
+        teaser = ""
+    else:
+        teaser = rss_desc
+
+if not teaser or is_boilerplate(teaser) or is_title_echo(teaser, title):
+    print("No usable summary found (only boilerplate or a title echo). Skipping this item for now.")
+    raise SystemExit(0)
 
 source_name = item["source"] or get_domain(source_url)
 
