@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 path = "/var/www/profile/posts.json"
 backup_path = path + ".bak_hourly"
-RSS_URL = "https://www.bing.com/news/search?q=artificial+intelligence&format=RSS&qft=interval%3d%227%22"
+RSS_URL = "https://news.google.com/rss/search?q=artificial+intelligence+when:1h&hl=en-US&gl=US&ceid=US:en"
 MAX_TEASER_CHARS = 280
 BOILERPLATE_MARKERS = [
     "comprehensive up-to-date news coverage",
@@ -18,11 +18,10 @@ def is_boilerplate(text):
 def is_title_echo(teaser, title):
     if not teaser or not title:
         return False
-    t = teaser.strip()
-    ti = title.strip()
-    if t.lower() == ti.lower():
-        return True
-    if t.lower().startswith(ti.lower()) and (len(t) - len(ti)) < 40:
+    t = teaser.lower().strip()
+    ti = title.lower().strip()
+    prefix_len = min(35, len(ti))
+    if prefix_len >= 15 and t.startswith(ti[:prefix_len]):
         return True
     return False
 
