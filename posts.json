@@ -1,5 +1,19 @@
 [
   {
+    "slug": "artificial-intelligence-news",
+    "icon": "🧠",
+    "date": "Sep 29, 2026",
+    "tagInline": "AI · Hourly Brief",
+    "title": "Artificial Intelligence News",
+    "teaser": "Former India pacer Praveen Kumar, who retired in 2018, has applied for a spot on the BCCI's junior selection committee, wanting to contribute to the game. Other applicants include Sudeep Tyagi, Ashish ...",
+    "tags": [
+      "AI",
+      "News"
+    ],
+    "sourceUrl": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abb8c22880f4e819c459d4bc038a439&url=https%3a%2f%2findianexpress.com%2fsection%2ftechnology%2fartificial-intelligence%2f&c=17189217963141468067&mkt=fr-fr",
+    "sourceName": "bing.com"
+  },
+  {
     "slug": "contradicting-trump-pope-leo-says-artificial-intelligence-safety-concerns-not-fa",
     "icon": "⚠️",
     "date": "Sep 29, 2026",
