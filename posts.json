@@ -1,5 +1,19 @@
 [
   {
+    "slug": "artificial-intelligence",
+    "icon": "🧠",
+    "date": "Oct 02, 2026",
+    "tagInline": "AI · Hourly Brief",
+    "title": "Artificial Intelligence",
+    "teaser": "Analysis by the company’s DeepMind unit suggests that an A.I.-enabled model delivers accurate forecasts a day or more before conventional models can. By William J. Broad In an hourlong interview, he ...",
+    "tags": [
+      "AI",
+      "News"
+    ],
+    "sourceUrl": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abfd502fdf544bea1acfa3a8e21ee3c&url=https%3a%2f%2fwww.nytimes.com%2fspotlight%2fartificial-intelligence&c=16953026437611554823&mkt=fr-fr",
+    "sourceName": "bing.com"
+  },
+  {
     "slug": "newsom-keeps-artificial-intelligence-as-official-term-in-california-after-federa",
     "icon": "🧠",
     "date": "Oct 02, 2026",
