@@ -275,3 +275,10 @@ Extraction failed: HTTP Error 403: Forbidden
 Selected news: Artificial Intelligence
 New post added: Artificial Intelligence...  (source: bing.com)
 Total posts now: 69
+8 candidate item(s) not yet posted. Trying each until one has a usable summary...
+  Trying: Artificial intelligence is fueling a new battle over US healthcare costs
+Extraction failed: HTTP Error 403: Forbidden
+  -> Usable summary found for: Artificial intelligence is fueling a new battle over US healthcare costs
+Selected news: Artificial intelligence is fueling a new battle over US healthcare costs
+New post added: Artificial intelligence is fueling a new battle over US heal...  (source: bing.com)
+Total posts now: 70
