@@ -637,6 +637,65 @@
       transform: scale(1.21);
     }
 
+    /* Idea #3: Holographic Scanline & Prismatic Rim on Hover */
+    @keyframes pbPrismaticSweep {
+      0% {
+        transform: translateX(-140%) skewX(-22deg);
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.75;
+      }
+      75% {
+        opacity: 0.45;
+      }
+      100% {
+        transform: translateX(240%) skewX(-22deg);
+        opacity: 0;
+      }
+    }
+
+    .portrait-glass-chamber::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 4;
+      box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.22), inset 0 0 18px rgba(168, 85, 247, 0.12);
+      transition: box-shadow 0.35s ease;
+    }
+
+    .portrait-3d-stage:hover .portrait-glass-chamber::after {
+      box-shadow: inset 0 0 0 1.5px rgba(103, 232, 249, 0.65), inset 0 0 22px rgba(192, 132, 252, 0.28);
+    }
+
+    .portrait-glass-chamber::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      bottom: -20%;
+      left: 0;
+      width: 48%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(56, 189, 248, 0.14) 25%,
+        rgba(192, 132, 252, 0.28) 50%,
+        rgba(52, 211, 153, 0.16) 75%,
+        transparent 100%
+      );
+      filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+      transform: translateX(-140%) skewX(-22deg);
+    }
+
+    .portrait-3d-stage:hover .portrait-glass-chamber::before {
+      animation: pbPrismaticSweep 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     /* Subtle Inner Glass Edge Vignette (Smoothly blends solid photo backgrounds like profile.jpg) */
     .portrait-inner-vignette {
       position: absolute;
