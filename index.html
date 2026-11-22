@@ -620,17 +620,21 @@
 
     /* Face-Centered Framing for profile.png / profile.jpg */
     .portrait-photo-framed {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
+      max-width: none;
+      max-height: none;
       object-fit: cover;
-      object-position: center 22%;
-      transform: scale(1.14);
-      transform-origin: center 24%;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      object-position: 50% 24%;
+      transform: scale(1.16);
+      transform-origin: 50% 35%;
+      display: block;
     }
 
     .portrait-3d-stage:hover .portrait-photo-framed {
-      transform: scale(1.18);
+      transform: scale(1.21);
     }
 
     /* Subtle Inner Glass Edge Vignette (Smoothly blends solid photo backgrounds like profile.jpg) */
